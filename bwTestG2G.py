@@ -20,14 +20,14 @@ logPath = sys.argv[1]
 
 with tf.device(dev1):
     X, Z1, _X = [], [], []
-    X.append(tf.random_uniform([dim, dim], 0, 10, name='X' + str(i)))
+    X.append(tf.random_uniform([dim, dim], 0, 10, name='X' + str(0)))
     _X.append(tf.placeholder(dtype=tf.float32, shape=[dim, dim]))
-    Z1.append(tf.matmul(_X[i], _X[i]))
+    Z1.append(tf.matmul(_X[0], _X[0]))
 
     Y, Z2, _Y = [], [], []
-    Y.append(tf.random_uniform([dim, dim], 0, 10, name='Y' + str(i)))
+    Y.append(tf.random_uniform([dim, dim], 0, 10, name='Y' + str(0)))
     _Y.append(tf.placeholder(dtype=tf.float32, shape=[dim, dim]))
-    Z2.append(tf.matmul(_Y[i], _Y[i]))
+    Z2.append(tf.matmul(_Y[0], _Y[0]))
 
 with tf.device(dev2):
     W, Z3, _W = [], [], []
