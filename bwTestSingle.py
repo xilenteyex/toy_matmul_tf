@@ -59,7 +59,7 @@ X_Y_ = X_ + Y_
 _X_Y = _X + _Y
 
 tot_time = 0
-for i in range(10):
+for i in range(100):
     print(i)
     run_metadata = tf.RunMetadata()
     run_options = tf.RunOptions(trace_level=tf.RunOptions.FULL_TRACE, output_partition_graphs=True)
