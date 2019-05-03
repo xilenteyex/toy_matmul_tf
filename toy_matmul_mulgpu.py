@@ -81,6 +81,16 @@ config_proto.graph_options.rewrite_options.layout_optimizer = (rewriter_config_p
 sess = tf.Session(config=config_proto)
 sess.run(tf.global_variables_initializer())
 
+
+all_ops = tf.get_default_graph().get_operations()
+adj_list_graph_notensors = {}
+for op in all_ops:
+  adj_list_graph_notensors[op.name] = set([inp.name.split(":")[0] for inp in op.inputs])
+
+adj_list_graph_notensors = {op_name:list(op_deps) for op_name, op_deps in adj_list_graph_notensors.items()}
+with open('commLogs/org_graph_notensors_%.2f.json' % (r), 'w') as outfile:
+  json.dump(adj_list_graph_notensors, outfile)
+
 X_, Y_ = sess.run([X, Y])
 X_Y_ = X_ + Y_
 _X_Y = _X + _Y
@@ -95,5 +105,16 @@ for i in range(10):
                 {_i: i_ for _i, i_ in zip(_X_Y, X_Y_)},
                 options=run_options,
                 run_metadata=run_metadata)
+    tot_time += time.time() -st
+
+    if i >= 2:
+        jsonObj = MessageToJson(run_metadata)
+        with open('commLogs/metadata_matmul_%.2f_%d.json' % (r, i), 'w') as outfile:
+            json.dump(jsonObj, outfile)
+
+        trace = timeline.Timeline(step_stats=run_metadata.step_stats)
+        trace_file = open('commLogs/timeline_matmul_%.2f_%d_.ctf.json' % (r, i), 'w')
+        trace_file.write(trace.generate_chrome_trace_format())
+print('total time taken : ', tot_time)
 
 
