@@ -54,9 +54,9 @@ adj_list_graph_notensors = {op_name:list(op_deps) for op_name, op_deps in adj_li
 with open('%s/org_graph_notensors.json' % (logPath), 'w') as outfile:
   json.dump(adj_list_graph_notensors, outfile)
 
-X_, Y_ = sess.run([X, Y])
-X_Y_ = X_ + Y_
-_X_Y = _X + _Y
+X_ = sess.run([X])
+X_Y_ = X_
+_X_Y = _X
 
 tot_time = 0
 for i in range(100):
