@@ -47,7 +47,7 @@ config_proto.graph_options.rewrite_options.layout_optimizer = (rewriter_config_p
 sess = tf.Session(config=config_proto)
 sess.run(tf.global_variables_initializer())
 
-X_ = sess.run([X])
+X_ = sess.run(X)
 
 tot_time = 0
 for i in range(10):
