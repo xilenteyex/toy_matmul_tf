@@ -30,6 +30,9 @@ with tf.device(dev2):
     _Y.append(tf.placeholder(dtype=tf.float32, shape=[dim, dim]))
     Z2.append(tf.matmul(_Y[0], _Y[0]))
 
+with tf.device(dev3):
+    Z3 = []
+    Z3.append(tf.add(Z2[0], Z1[0]))
 
 
 config_proto = tf.ConfigProto(graph_options=tf.GraphOptions(build_cost_model=1))
@@ -55,7 +58,7 @@ for i in range(10):
     run_metadata = tf.RunMetadata()
     run_options = tf.RunOptions(trace_level=tf.RunOptions.FULL_TRACE, output_partition_graphs=True)
     st = time.time()
-    sess.run(Z1+Z2,
+    sess.run(Z1+Z2+Z3,
                 {_i: i_ for _i, i_ in zip(_X_Y, X_Y_)},
                 options=run_options,
                 run_metadata=run_metadata)
