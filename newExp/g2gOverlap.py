@@ -63,7 +63,7 @@ for i in range(10):
     run_metadata = tf.RunMetadata()
     run_options = tf.RunOptions(trace_level=tf.RunOptions.FULL_TRACE, output_partition_graphs=True)
     st = time.time()
-    sess.run(Z1+Z2+Z3+Z4,
+    sess.run(Z2+Z4,
                 {_i: i_ for _i, i_ in zip(_X_Y, X_Y_)},
                 options=run_options,
                 run_metadata=run_metadata)
