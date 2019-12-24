@@ -11,7 +11,7 @@
         {
             "ph": "M",
             "args": {
-                "name": "/gpu:0 (Quadro P5000)/context#0/stream#3:MemcpyDtoH Compute"
+                "name": "/gpu:1 (Quadro P5000)/context#0/stream#3:MemcpyDtoH Compute"
             },
             "pid": 1,
             "name": "process_name"
@@ -19,7 +19,7 @@
         {
             "ph": "M",
             "args": {
-                "name": "/gpu:0 (Quadro P5000)/context#0/stream#3:MemcpyDtoH Tensors"
+                "name": "/gpu:1 (Quadro P5000)/context#0/stream#3:MemcpyDtoH Tensors"
             },
             "pid": 2,
             "name": "process_name"
@@ -27,7 +27,7 @@
         {
             "ph": "M",
             "args": {
-                "name": "/gpu:1 (Quadro P5000)/context#0/stream#3:MemcpyDtoH Compute"
+                "name": "/gpu:0 (Quadro P5000)/context#0/stream#3:MemcpyDtoH Compute"
             },
             "pid": 3,
             "name": "process_name"
@@ -35,7 +35,7 @@
         {
             "ph": "M",
             "args": {
-                "name": "/gpu:1 (Quadro P5000)/context#0/stream#3:MemcpyDtoH Tensors"
+                "name": "/gpu:0 (Quadro P5000)/context#0/stream#3:MemcpyDtoH Tensors"
             },
             "pid": 4,
             "name": "process_name"
@@ -75,7 +75,7 @@
         {
             "ph": "M",
             "args": {
-                "name": "/gpu:0 (Quadro P5000)/context#0/stream#1:Kernel Compute"
+                "name": "/device:GPU:0/stream:all Compute"
             },
             "pid": 9,
             "name": "process_name"
@@ -83,7 +83,7 @@
         {
             "ph": "M",
             "args": {
-                "name": "/gpu:0 (Quadro P5000)/context#0/stream#1:Kernel Tensors"
+                "name": "/device:GPU:0/stream:all Tensors"
             },
             "pid": 10,
             "name": "process_name"
@@ -91,7 +91,7 @@
         {
             "ph": "M",
             "args": {
-                "name": "/device:GPU:1/stream:all Compute"
+                "name": "/gpu:0 (Quadro P5000)/context#0/stream#1:Kernel Compute"
             },
             "pid": 11,
             "name": "process_name"
@@ -99,7 +99,7 @@
         {
             "ph": "M",
             "args": {
-                "name": "/device:GPU:1/stream:all Tensors"
+                "name": "/gpu:0 (Quadro P5000)/context#0/stream#1:Kernel Tensors"
             },
             "pid": 12,
             "name": "process_name"
@@ -123,7 +123,7 @@
         {
             "ph": "M",
             "args": {
-                "name": "/device:GPU:0/stream:all Compute"
+                "name": "/device:GPU:1/stream:all Compute"
             },
             "pid": 15,
             "name": "process_name"
@@ -131,7 +131,7 @@
         {
             "ph": "M",
             "args": {
-                "name": "/device:GPU:0/stream:all Tensors"
+                "name": "/device:GPU:1/stream:all Tensors"
             },
             "pid": 16,
             "name": "process_name"
@@ -171,7 +171,7 @@
         {
             "ph": "M",
             "args": {
-                "name": "/job:localhost/replica:0/task:0/device:CPU:0 Compute"
+                "name": "/job:localhost/replica:0/task:0/device:GPU:1 Compute"
             },
             "pid": 21,
             "name": "process_name"
@@ -179,7 +179,7 @@
         {
             "ph": "M",
             "args": {
-                "name": "/job:localhost/replica:0/task:0/device:CPU:0 Tensors"
+                "name": "/job:localhost/replica:0/task:0/device:GPU:1 Tensors"
             },
             "pid": 22,
             "name": "process_name"
@@ -187,7 +187,7 @@
         {
             "ph": "M",
             "args": {
-                "name": "/job:localhost/replica:0/task:0/device:GPU:1 Compute"
+                "name": "/job:localhost/replica:0/task:0/device:CPU:0 Compute"
             },
             "pid": 23,
             "name": "process_name"
@@ -195,7 +195,7 @@
         {
             "ph": "M",
             "args": {
-                "name": "/job:localhost/replica:0/task:0/device:GPU:1 Tensors"
+                "name": "/job:localhost/replica:0/task:0/device:CPU:0 Tensors"
             },
             "pid": 24,
             "name": "process_name"
@@ -203,24 +203,11 @@
         {
             "name": "unknown",
             "args": {
-                "name": "MatMul/_8:_Send#id=10,device=/job:localhost/replica:0/task:0/device:GPU:0,async=false#::edge_11_MatMul::MemcpyDtoH",
-                "op": "unknown"
-            },
-            "pid": 1,
-            "ts": 1577208540024198,
-            "cat": "Op",
-            "tid": 0,
-            "ph": "X",
-            "dur": 81394
-        },
-        {
-            "name": "unknown",
-            "args": {
                 "name": "MatMul_1/_10:_Send#id=10,device=/job:localhost/replica:0/task:0/device:GPU:1,async=false#::edge_13_MatMul_1::MemcpyDtoH",
                 "op": "unknown"
             },
-            "pid": 3,
-            "ts": 1577208538688158,
+            "pid": 1,
+            "ts": 1577208732215271,
             "cat": "Op",
             "tid": 0,
             "ph": "X",
@@ -229,28 +216,80 @@
         {
             "name": "unknown",
             "args": {
-                "name": "edge_6__arg_Placeholder_0_0::MemcpyHtoD",
+                "name": "MatMul/_8:_Send#id=10,device=/job:localhost/replica:0/task:0/device:GPU:0,async=false#::edge_11_MatMul::MemcpyDtoH",
                 "op": "unknown"
             },
-            "pid": 5,
-            "ts": 1577208537355526,
+            "pid": 3,
+            "ts": 1577208732223395,
             "cat": "Op",
             "tid": 0,
             "ph": "X",
-            "dur": 86760
+            "dur": 81390
         },
         {
             "name": "unknown",
             "args": {
-                "name": "_arg_Placeholder_1_0_1/_4:_Send#id=10,device=/job:localhost/replica:0/task:0/device:CPU:0,async=false#::edge_9__arg_Placeholder_1_0_1::MemcpyHtoD",
+                "name": "_arg_Placeholder_0_0/_6:_Send#id=10,device=/job:localhost/replica:0/task:0/device:CPU:0,async=false#::edge_6__arg_Placeholder_0_0::MemcpyHtoD",
                 "op": "unknown"
             },
-            "pid": 7,
-            "ts": 1577208537355431,
+            "pid": 5,
+            "ts": 1577208730879294,
             "cat": "Op",
             "tid": 0,
             "ph": "X",
-            "dur": 86705
+            "dur": 86789
+        },
+        {
+            "name": "unknown",
+            "args": {
+                "name": "edge_9__arg_Placeholder_1_0_1::MemcpyHtoD",
+                "op": "unknown"
+            },
+            "pid": 7,
+            "ts": 1577208730879268,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 86735
+        },
+        {
+            "name": "MatMul#id=10,device=/job",
+            "args": {
+                "name": "MatMul",
+                "op": "MatMul#id=10,device=/job"
+            },
+            "pid": 9,
+            "ts": 1577208730966355,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 1257032
+        },
+        {
+            "name": "_Send#id=10,device=/job",
+            "args": {
+                "name": "_arg_Placeholder_0_0/_6",
+                "op": "_Send#id=10,device=/job"
+            },
+            "pid": 9,
+            "ts": 1577208730879294,
+            "cat": "Op",
+            "tid": 1,
+            "ph": "X",
+            "dur": 86789
+        },
+        {
+            "name": "_Send#id=10,device=/job",
+            "args": {
+                "name": "MatMul/_8",
+                "op": "_Send#id=10,device=/job"
+            },
+            "pid": 9,
+            "ts": 1577208732223395,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 81390
         },
         {
             "name": "unknown",
@@ -258,51 +297,12 @@
                 "name": "MatMul:MatMul#id=10,device=/job:localhost/replica:0/task:0/device:GPU:0,async=false#::maxwell_sgemm_128x128_nn",
                 "op": "unknown"
             },
-            "pid": 9,
-            "ts": 1577208538769690,
+            "pid": 11,
+            "ts": 1577208730966355,
             "cat": "Op",
             "tid": 0,
             "ph": "X",
-            "dur": 1254506
-        },
-        {
-            "name": "MatMul#id=10,device=/job",
-            "args": {
-                "name": "MatMul_1",
-                "op": "MatMul#id=10,device=/job"
-            },
-            "pid": 11,
-            "ts": 1577208537442474,
-            "cat": "Op",
-            "tid": 0,
-            "ph": "X",
-            "dur": 1245675
-        },
-        {
-            "name": "_Send#id=10,device=/job",
-            "args": {
-                "name": "_arg_Placeholder_1_0_1/_4",
-                "op": "_Send#id=10,device=/job"
-            },
-            "pid": 11,
-            "ts": 1577208537355431,
-            "cat": "Op",
-            "tid": 1,
-            "ph": "X",
-            "dur": 86705
-        },
-        {
-            "name": "_Send#id=10,device=/job",
-            "args": {
-                "name": "MatMul_1/_10",
-                "op": "_Send#id=10,device=/job"
-            },
-            "pid": 11,
-            "ts": 1577208538688158,
-            "cat": "Op",
-            "tid": 0,
-            "ph": "X",
-            "dur": 81395
+            "dur": 1257032
         },
         {
             "name": "unknown",
@@ -311,50 +311,50 @@
                 "op": "unknown"
             },
             "pid": 13,
-            "ts": 1577208537442474,
+            "ts": 1577208730966345,
             "cat": "Op",
             "tid": 0,
             "ph": "X",
-            "dur": 1245675
+            "dur": 1248925
         },
         {
             "name": "MatMul#id=10,device=/job",
             "args": {
-                "name": "MatMul",
+                "name": "MatMul_1",
                 "op": "MatMul#id=10,device=/job"
             },
             "pid": 15,
-            "ts": 1577208538769690,
+            "ts": 1577208730966345,
             "cat": "Op",
             "tid": 0,
             "ph": "X",
-            "dur": 1254506
+            "dur": 1248925
         },
         {
             "name": "",
             "args": {
-                "name": "edge_6__arg_Placeholder_0_0",
+                "name": "edge_9__arg_Placeholder_1_0_1",
                 "op": ""
             },
             "pid": 15,
-            "ts": 1577208537355526,
+            "ts": 1577208730879268,
             "cat": "Op",
             "tid": 1,
             "ph": "X",
-            "dur": 86760
+            "dur": 86735
         },
         {
             "name": "_Send#id=10,device=/job",
             "args": {
-                "name": "MatMul/_8",
+                "name": "MatMul_1/_10",
                 "op": "_Send#id=10,device=/job"
             },
             "pid": 15,
-            "ts": 1577208540024198,
+            "ts": 1577208732215271,
             "cat": "Op",
             "tid": 0,
             "ph": "X",
-            "dur": 81394
+            "dur": 81395
         },
         {
             "name": "unknown",
@@ -363,11 +363,11 @@
                 "op": "unknown"
             },
             "pid": 17,
-            "ts": 1577208537355290,
+            "ts": 1577208730879142,
             "cat": "Op",
             "tid": 0,
             "ph": "X",
-            "dur": 124
+            "dur": 7
         },
         {
             "name": "unknown",
@@ -376,11 +376,11 @@
                 "op": "unknown"
             },
             "pid": 17,
-            "ts": 1577208537355417,
+            "ts": 1577208730879155,
             "cat": "Op",
             "tid": 0,
             "ph": "X",
-            "dur": 1
+            "dur": 185
         },
         {
             "name": "unknown",
@@ -389,11 +389,11 @@
                 "op": "unknown"
             },
             "pid": 17,
-            "ts": 1577208537355421,
+            "ts": 1577208730879357,
             "cat": "Op",
             "tid": 0,
             "ph": "X",
-            "dur": 2
+            "dur": 9
         },
         {
             "name": "unknown",
@@ -402,11 +402,11 @@
                 "op": "unknown"
             },
             "pid": 17,
-            "ts": 1577208537355424,
+            "ts": 1577208730879371,
             "cat": "Op",
             "tid": 0,
             "ph": "X",
-            "dur": 17
+            "dur": 4
         },
         {
             "name": "NoOp",
@@ -415,11 +415,11 @@
                 "op": "NoOp"
             },
             "pid": 19,
-            "ts": 1577208537355443,
+            "ts": 1577208730879083,
             "cat": "Op",
             "tid": 0,
             "ph": "X",
-            "dur": 8
+            "dur": 31
         },
         {
             "name": "MatMul",
@@ -430,16 +430,16 @@
                 "op": "MatMul"
             },
             "pid": 19,
-            "ts": 1577208538769627,
+            "ts": 1577208730966227,
             "cat": "Op",
             "tid": 0,
             "ph": "X",
-            "dur": 68
+            "dur": 152
         },
         {
             "name": "_arg_Placeholder_0_0",
-            "pid": 21,
-            "ts": 1577208537355274,
+            "pid": 23,
+            "ts": 1577208730879126,
             "cat": "DataFlow",
             "tid": 0,
             "ph": "s",
@@ -448,7 +448,7 @@
         {
             "name": "_arg_Placeholder_0_0",
             "pid": 19,
-            "ts": 1577208538769627,
+            "ts": 1577208730966227,
             "cat": "DataFlow",
             "tid": 0,
             "ph": "t",
@@ -456,8 +456,8 @@
         },
         {
             "name": "_arg_Placeholder_0_0",
-            "pid": 21,
-            "ts": 1577208537355274,
+            "pid": 23,
+            "ts": 1577208730879126,
             "cat": "DataFlow",
             "tid": 0,
             "ph": "s",
@@ -466,7 +466,7 @@
         {
             "name": "_arg_Placeholder_0_0",
             "pid": 19,
-            "ts": 1577208538769627,
+            "ts": 1577208730966227,
             "cat": "DataFlow",
             "tid": 0,
             "ph": "t",
@@ -479,114 +479,11 @@
                 "op": "NoOp"
             },
             "pid": 21,
-            "ts": 1577208537355245,
+            "ts": 1577208730879111,
             "cat": "Op",
             "tid": 0,
             "ph": "X",
-            "dur": 6
-        },
-        {
-            "name": "_Arg",
-            "args": {
-                "name": "_arg_Placeholder_0_0",
-                "op": "_Arg"
-            },
-            "pid": 21,
-            "ts": 1577208537355259,
-            "cat": "Op",
-            "tid": 0,
-            "ph": "X",
-            "dur": 15
-        },
-        {
-            "name": "_Arg",
-            "args": {
-                "name": "_arg_Placeholder_1_0_1",
-                "op": "_Arg"
-            },
-            "pid": 21,
-            "ts": 1577208537355279,
-            "cat": "Op",
-            "tid": 0,
-            "ph": "X",
-            "dur": 7
-        },
-        {
-            "name": "_Retval",
-            "args": {
-                "input0": "MatMul_1/_11",
-                "name": "_retval_MatMul_1_0_1",
-                "op": "_Retval"
-            },
-            "pid": 21,
-            "ts": 1577208540105636,
-            "cat": "Op",
-            "tid": 0,
-            "ph": "X",
-            "dur": 5
-        },
-        {
-            "name": "MatMul_1",
-            "pid": 23,
-            "ts": 1577208537442503,
-            "cat": "DataFlow",
-            "tid": 0,
-            "ph": "s",
-            "id": 2
-        },
-        {
-            "name": "MatMul_1",
-            "pid": 21,
-            "ts": 1577208540105636,
-            "cat": "DataFlow",
-            "tid": 0,
-            "ph": "t",
-            "id": 2
-        },
-        {
-            "name": "_Retval",
-            "args": {
-                "input0": "MatMul/_9",
-                "name": "_retval_MatMul_0_0",
-                "op": "_Retval"
-            },
-            "pid": 21,
-            "ts": 1577208540105727,
-            "cat": "Op",
-            "tid": 0,
-            "ph": "X",
-            "dur": 3
-        },
-        {
-            "name": "MatMul",
-            "pid": 19,
-            "ts": 1577208538769695,
-            "cat": "DataFlow",
-            "tid": 0,
-            "ph": "s",
-            "id": 3
-        },
-        {
-            "name": "MatMul",
-            "pid": 21,
-            "ts": 1577208540105727,
-            "cat": "DataFlow",
-            "tid": 0,
-            "ph": "t",
-            "id": 3
-        },
-        {
-            "name": "NoOp",
-            "args": {
-                "name": "_SOURCE",
-                "op": "NoOp"
-            },
-            "pid": 23,
-            "ts": 1577208537355175,
-            "cat": "Op",
-            "tid": 0,
-            "ph": "X",
-            "dur": 42
+            "dur": 31
         },
         {
             "name": "MatMul",
@@ -596,44 +493,147 @@
                 "name": "MatMul_1",
                 "op": "MatMul"
             },
-            "pid": 23,
-            "ts": 1577208537442322,
+            "pid": 21,
+            "ts": 1577208730966230,
             "cat": "Op",
             "tid": 0,
             "ph": "X",
-            "dur": 181
+            "dur": 166
+        },
+        {
+            "name": "_arg_Placeholder_1_0_1",
+            "pid": 23,
+            "ts": 1577208730879138,
+            "cat": "DataFlow",
+            "tid": 0,
+            "ph": "s",
+            "id": 2
         },
         {
             "name": "_arg_Placeholder_1_0_1",
             "pid": 21,
-            "ts": 1577208537355286,
+            "ts": 1577208730966230,
+            "cat": "DataFlow",
+            "tid": 0,
+            "ph": "t",
+            "id": 2
+        },
+        {
+            "name": "_arg_Placeholder_1_0_1",
+            "pid": 23,
+            "ts": 1577208730879138,
+            "cat": "DataFlow",
+            "tid": 0,
+            "ph": "s",
+            "id": 3
+        },
+        {
+            "name": "_arg_Placeholder_1_0_1",
+            "pid": 21,
+            "ts": 1577208730966230,
+            "cat": "DataFlow",
+            "tid": 0,
+            "ph": "t",
+            "id": 3
+        },
+        {
+            "name": "NoOp",
+            "args": {
+                "name": "_SOURCE",
+                "op": "NoOp"
+            },
+            "pid": 23,
+            "ts": 1577208730879078,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 18
+        },
+        {
+            "name": "_Arg",
+            "args": {
+                "name": "_arg_Placeholder_0_0",
+                "op": "_Arg"
+            },
+            "pid": 23,
+            "ts": 1577208730879109,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 17
+        },
+        {
+            "name": "_Arg",
+            "args": {
+                "name": "_arg_Placeholder_1_0_1",
+                "op": "_Arg"
+            },
+            "pid": 23,
+            "ts": 1577208730879132,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 6
+        },
+        {
+            "name": "_Retval",
+            "args": {
+                "input0": "MatMul_1/_11",
+                "name": "_retval_MatMul_1_0_1",
+                "op": "_Retval"
+            },
+            "pid": 23,
+            "ts": 1577208732296832,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 20
+        },
+        {
+            "name": "MatMul_1",
+            "pid": 21,
+            "ts": 1577208730966396,
             "cat": "DataFlow",
             "tid": 0,
             "ph": "s",
             "id": 4
         },
         {
-            "name": "_arg_Placeholder_1_0_1",
+            "name": "MatMul_1",
             "pid": 23,
-            "ts": 1577208537442322,
+            "ts": 1577208732296832,
             "cat": "DataFlow",
             "tid": 0,
             "ph": "t",
             "id": 4
         },
         {
-            "name": "_arg_Placeholder_1_0_1",
-            "pid": 21,
-            "ts": 1577208537355286,
+            "name": "_Retval",
+            "args": {
+                "input0": "MatMul/_9",
+                "name": "_retval_MatMul_0_0",
+                "op": "_Retval"
+            },
+            "pid": 23,
+            "ts": 1577208732304963,
+            "cat": "Op",
+            "tid": 0,
+            "ph": "X",
+            "dur": 23
+        },
+        {
+            "name": "MatMul",
+            "pid": 19,
+            "ts": 1577208730966379,
             "cat": "DataFlow",
             "tid": 0,
             "ph": "s",
             "id": 5
         },
         {
-            "name": "_arg_Placeholder_1_0_1",
+            "name": "MatMul",
             "pid": 23,
-            "ts": 1577208537442322,
+            "ts": 1577208732304963,
             "cat": "DataFlow",
             "tid": 0,
             "ph": "t",
