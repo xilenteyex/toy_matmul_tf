@@ -51,10 +51,10 @@ with tf.device(dev2):
     Z2.append(tf.matmul(Z1[1], Z1[1]))
 
 with tf.device(dev4):
-    Z2.append(tf.matmul(Z1[0], Z1[0]))
+    Z2.append(tf.matmul(Z3[0], Z3[0]))
 
 with tf.device(dev5):
-    Z2.append(tf.matmul(Z3[0], Z3[0]))
+    Z2.append(tf.matmul(Z1[0], Z1[0]))
 
 
 
