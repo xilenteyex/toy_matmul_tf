@@ -6,7 +6,7 @@ rm -r selCommsLogs389376
 mkdir selCommsRawLogs389376
 mkdir selCommsLogs389376
 
-python allComms.py selCommsRawLogs389376
+python selectedComms.py 312 selCommsRawLogs389376
 
 cd /root/pesto
 
@@ -33,7 +33,7 @@ rm -r selCommsLogs1444
 mkdir selCommsRawLogs1444
 mkdir selCommsLogs1444
 
-python allComms.py selCommsRawLogs1444
+python selectedComms.py 19 selCommsRawLogs1444
 
 cd /root/pesto
 
@@ -61,7 +61,7 @@ rm -r selCommsLogs10227204
 mkdir selCommsRawLogs10227204
 mkdir selCommsLogs10227204
 
-python allComms.py selCommsRawLogs10227204
+python selectedComms.py 1599 selCommsRawLogs10227204
 
 cd /root/pesto
 
