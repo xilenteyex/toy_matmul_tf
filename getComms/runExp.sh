@@ -1,7 +1,7 @@
 mkdir allCommsRawLogs
 mkdir allCommsLogs
 
-python allComms.py allCommsRawLog
+python allComms.py allCommsRawLogs
 
 cd /root/pesto
 
