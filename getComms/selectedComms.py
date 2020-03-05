@@ -15,8 +15,8 @@ dim = 8
 dev1 = '/gpu:0'
 dev2 = '/gpu:1'
 dev3 = '/cpu:0'
-logPath = sys.argv[1]
-dim = int(sys.argv[2])
+logPath = sys.argv[2]
+dim = int(sys.argv[1])
 
 with tf.device(dev1):
     X, Z1, _X, Z2, Z3 = [], [], [], [], []

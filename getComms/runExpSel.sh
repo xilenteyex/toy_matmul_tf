@@ -24,7 +24,7 @@ python getEdges.py /root/toy_matmul_tf/getComms/selCommsRawLogs389376/metadata_ 
 /root/toy_matmul_tf/getComms/selCommsLogs389376/edge-comm
 
 
-
+cd /root/toy_matmul_tf/getComms
 rm -r selCommsRawLogs1444
 rm -r selCommsLogs1444
 
@@ -52,7 +52,7 @@ python getEdges.py /root/toy_matmul_tf/getComms/selCommsRawLogs1444/metadata_ \
 
 
 
-
+cd /root/toy_matmul_tf/getComms
 rm -r selCommsRawLogs10227204
 rm -r selCommsLogs10227204
 
