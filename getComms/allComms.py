@@ -11,7 +11,7 @@ import time
 
 
 
-dim = 32
+dim = 8
 dev1 = '/gpu:0'
 dev2 = '/gpu:1'
 dev3 = '/cpu:0'
@@ -19,12 +19,14 @@ logPath = sys.argv[1]
 
 
 with tf.device(dev1):
+    i = 0
     X, Z1, _X, Z2, Z3 = [], [], [], [], []
     while True:
         dim = int(dim*1.2)
         X.append(tf.random_uniform([dim, dim], 0, 10, name='X' + str(0)))
         _X.append(tf.placeholder(dtype=tf.float32, shape=[dim, dim]))
-        Z1.append(tf.matmul(_X[0], _X[0]))
+        Z1.append(tf.matmul(_X[i], _X[i]))
+        i += 1
 #        dim = int(dim*1.2)
         if (dim**2)*4 >= 1284505600:
             break

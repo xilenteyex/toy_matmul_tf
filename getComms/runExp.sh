@@ -1,3 +1,8 @@
+rm -r allCommsRawLogs
+rm -r allCommsLogs
+
+
+
 mkdir allCommsRawLogs
 mkdir allCommsLogs
 
