@@ -22,7 +22,7 @@ with tf.device(dev1):
     X, Z1, _X, Z2, Z3 = [], [], [], [], []
     X.append(tf.random_uniform([dim, dim], 0, 10, name='X' + str(0)))
     _X.append(tf.placeholder(dtype=tf.float32, shape=[dim, dim]))
-    Z1.append(tf.matmul(_X[i], _X[i]))
+    Z1.append(tf.matmul(_X[0], _X[0]))
 
 config_proto = tf.ConfigProto(graph_options=tf.GraphOptions(build_cost_model=1))
 config_proto.intra_op_parallelism_threads = 1
