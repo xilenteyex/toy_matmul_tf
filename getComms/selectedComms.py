@@ -26,7 +26,7 @@ with tf.device(dev1):
     _X.append(tf.placeholder(dtype=tf.float32, shape=[dim, dim]))
     Z1.append(tf.matmul(_X[0], _X[0]))
 
-config_proto = tf.ConfigProto(graph_options=tf.GraphOptions(build_cost_model=1))
+config_proto = tf.ConfigProto(graph_options=tf.GraphOptions(build_cost_model=1), gpu_options=tf.GPUOptions(force_gpu_compatible=True))
 config_proto.intra_op_parallelism_threads = 1
 config_proto.inter_op_parallelism_threads = 1
 config_proto.graph_options.optimizer_options.opt_level = -1
