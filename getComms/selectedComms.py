@@ -18,6 +18,8 @@ dev3 = '/cpu:0'
 logPath = sys.argv[2]
 dim = int(sys.argv[1])
 
+print("******************* DIM : ", dim, " **********************")
+
 with tf.device(dev1):
     X, Z1, _X, Z2, Z3 = [], [], [], [], []
     X.append(tf.random_uniform([dim, dim], 0, 10, name='X' + str(0)))

@@ -8,7 +8,7 @@ do
 	mkdir selCommsRawLogs$i
 	mkdir selCommsLogs$i
 
-	python selectedComms.py 312 selCommsRawLogs$i
+	python selectedComms.py $i selCommsRawLogs$i
 
 	cd /root/pesto
 
