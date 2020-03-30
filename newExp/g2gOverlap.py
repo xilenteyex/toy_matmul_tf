@@ -14,6 +14,8 @@ import time
 dim = 32*(2**9)
 dev1 = '/gpu:0'
 dev2 = '/gpu:1'
+dev4 = '/gpu:2'
+dev5 = '/gpu:3'
 dev3 = '/cpu:0'
 logPath = sys.argv[1]
 
@@ -30,12 +32,28 @@ with tf.device(dev2):
     _Y.append(tf.placeholder(dtype=tf.float32, shape=[dim, dim]))
     Z3.append(tf.matmul(_Y[0], _Y[0]))
 
+
+with tf.device(dev4):
+    X.append(tf.random_uniform([dim, dim], 0, 10, name='X' + str(0)))
+    _X.append(tf.placeholder(dtype=tf.float32, shape=[dim, dim]))
+    Z1.append(tf.matmul(_X[0], _X[0]))
+
+with tf.device(dev5):
+    Y.append(tf.random_uniform([dim, dim], 0, 10, name='Y' + str(0)))
+    _Y.append(tf.placeholder(dtype=tf.float32, shape=[dim, dim]))
+    Z3.append(tf.matmul(_Y[0], _Y[0]))
+
 with tf.device(dev1):
     Z2 = []
-    Z2.append(tf.matmul(Z3[0], Z3[0]))
+    Z2.append(tf.matmul(Z3[1], Z3[1]))
 
 with tf.device(dev2):
-    Z4 = []
+    Z2.append(tf.matmul(Z1[1], Z1[1]))
+
+with tf.device(dev4):
+    Z2.append(tf.matmul(Z3[0], Z3[0]))
+
+with tf.device(dev5):
     Z2.append(tf.matmul(Z1[0], Z1[0]))
 
 
@@ -63,7 +81,7 @@ for i in range(10):
     run_metadata = tf.RunMetadata()
     run_options = tf.RunOptions(trace_level=tf.RunOptions.FULL_TRACE, output_partition_graphs=True)
     st = time.time()
-    sess.run(Z2+Z4,
+    sess.run(Z2,
                 {_i: i_ for _i, i_ in zip(_X_Y, X_Y_)},
                 options=run_options,
                 run_metadata=run_metadata)
