@@ -1,0 +1,1 @@
+{"X0/max": [], "X0/RandomUniform": ["X0/shape"], "X0/min": [], "MatMul": ["Placeholder"], "X0/mul": ["X0/sub", "X0/RandomUniform"], "X0/sub": ["X0/min", "X0/max"], "Add": ["MatMul"], "X0": ["X0/min", "X0/mul"], "Placeholder": [], "X0/shape": []}
